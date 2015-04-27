@@ -1,0 +1,22 @@
+<table border="1">
+	<thead>
+		<tr>
+			<td>Showed Up?</td>
+			<td>First Name</td>
+			<td>Last Name</td>
+			<td>Email</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% for attendee in entry_list %}
+		<tr>
+			<td>
+				{{ attendee.showed_up }}
+			</td>
+			<td>{{ attendee.first_name }}</td>
+			<td>{{ attendee.last_name }}</td>
+			<td>{{ attendee.email }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<style>
+body #main-content { 
+    padding-top: 70px; 
+    padding-bottom: 70px;
+  }
+</style>
+
+    {% block head %}
+    <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Event Tracker</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        {% if request.session.user_email %}
+        <li><p class="navbar-text">Signed in as <strong>{{ request.session.user_full_name }}</strong></p></li>
+        {% else %}
+        <li><p class="navbar-text">Not Signed in</strong></p></li>
+        {% endif %}
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+            <form action="/logout/" method="POST" class="navbar-form navbar-left">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-default">Log Out</button>
+            </form>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <!-- Error Message -->
+  {% if error_msg %}<p><strong>{{ error_msg }}</strong></p>{% endif %}
+    
+    <div class="container" id="main-content">
+    {% block content %}{% endblock %}
+    </div>
+
+</body>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+      <div class="container">
+        <p class="muted-text">&copy; Copyright 2015 by Leo.</p>
+      </div>
+    </nav>
+</html>
