@@ -4,6 +4,17 @@
 
 {% block content %}
 
+<form class="form-horizontal">
+
+<div class="form-group">
+    {{ form.first_name.errors }}
+    <label for="{{ form.subject.id_for_label }}">First Name:</label>
+    {{ form.subject }}
+</div>
+
+
+
+
 <form class="form-horizontal" method="post">{% csrf_token %}
 	<div class="form-group"
 	    {{ form.as_p }}
