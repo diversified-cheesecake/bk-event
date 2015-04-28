@@ -3,6 +3,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView
+from djqscsv import render_to_csv_response
+
 
 from .models import Attendee, Attendance, User
 
@@ -105,6 +107,15 @@ class AttendeeUpdate(UpdateView):
 		'cell_phone',
 		'showed_up',
 	]
+
+def csv_export(request):
+	if request.method == 'POST':
+		try:
+			if request.POST['export_password'] == 'evergreen':
+				qs = User.objects.all()
+				return render_to_csv_response(qs)
+	render(request, 'export.html')
+
 
 
 
