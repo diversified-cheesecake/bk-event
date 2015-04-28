@@ -26,10 +26,10 @@
 	<div class="form-group">
     <label for="id_{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="id_{{ field.name }}" name="{{ field.name }}" placeholder="{{ field.label }}">
+      <input type="text" class="form-control" id="id_{{ field.name }}" name="{{ field.name }}" placeholder="{{ field.label }}" value="{{ field.value }}">
     </div>
   </div>
- {% endifequal %}
+ {% endif %}
  {% endfor %}
 <button type="submit" class="btn btn-default">Update New Attendee</button>
 

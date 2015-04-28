@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'event',
     'csvimport.app.CSVImportConf',  # use AppConfig for django >=1.7 csvimport >=2.2
-    'import-export',
+    # 'import-export',
 )
 
 MIDDLEWARE_CLASSES = (
