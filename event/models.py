@@ -5,6 +5,9 @@ class User(models.Model):
 	full_name = models.CharField(max_length=245, blank=True)
 	email = models.CharField(max_length=245)
 
+	def __unicode__(self):
+		return '{} {}'.format(self.full_name, self.email)
+
 
 class Attendee(models.Model):
 	my_campaign_id = models.IntegerField(null=True, blank=True)
