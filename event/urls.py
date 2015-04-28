@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^save-add/$', views.save_and_add, name='save_and_add'),
     url(r'^logout/$', views.logout, name='logout'),
     url(r'^attendee/add/$', views.AttendeeCreate.as_view(), name='attendee_add'),
-    url(r'^attendee/update/(?P<pk>[0-9]+)/$', views.AttendeeUpdate.as_view(), name='attendee_update')
+    url(r'^attendee/update/(?P<pk>[0-9]+)/$', views.AttendeeUpdate.as_view(), name='attendee_update'),
+    url(r'^csv-export/$', views.csv_export, name='csv_export'),
 ]
