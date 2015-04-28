@@ -1,10 +1,7 @@
 from django.contrib import admin
 
-from .models import Attendee, Attendance
+from .models import Attendee, Attendance, User
 
-
-class AttendanceInLine(admin.TabularInline):
-	model = Attendance
 
 class AttendeeAdmin(admin.ModelAdmin):
 	fields = [
@@ -21,9 +18,7 @@ class AttendeeAdmin(admin.ModelAdmin):
 		'showed_up',
 		'input_by',
 	]
-	
-	inlines = [
-		AttendanceInLine,
-	]
+
 
 admin.site.register(Attendee, AttendeeAdmin)
+admin.site.register(User)
