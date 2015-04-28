@@ -112,7 +112,7 @@ def csv_export(request):
 	if request.method == 'POST':
 		try:
 			if request.POST['export_password'] == 'evergreen':
-				qs = User.objects.all()
+				qs = Attendee.objects.all()
 				return render_to_csv_response(qs)
 		except:
 			pass
