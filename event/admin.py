@@ -3,6 +3,7 @@ from django.contrib import admin
 from .models import Attendee, Attendance, User
 
 
+
 class AttendeeAdmin(admin.ModelAdmin):
 	fields = [
 		'my_campaign_id',
