@@ -1,14 +1,10 @@
 from django.contrib import admin
 
 from .models import Attendee, Attendance, User
-from import_export.admin import ImportExportActionModelAdmin
 
 
-class AttendeeResource(resources.ModelResource):
-
-    class Meta:
-        model = Attendee
-    	fields = [
+class AttendeeAdmin(admin.ModelAdmin):
+	fields = [
 		'my_campaign_id',
 		'first_name',
 		'last_name',
@@ -22,27 +18,6 @@ class AttendeeResource(resources.ModelResource):
 		'showed_up',
 		'input_by',
 	]
-
-class AttendeeAdmin(ImportExportActionModelAdmin):
-    resource_class = AttendeeResource
-    pass
-
-
-# class AttendeeAdmin(admin.ModelAdmin):
-# 	fields = [
-# 		'my_campaign_id',
-# 		'first_name',
-# 		'last_name',
-# 		'address',
-# 		'city',
-# 		'state',
-# 		'zipcode',
-# 		'email',
-# 		'home_phone',
-# 		'cell_phone',
-# 		'showed_up',
-# 		'input_by',
-# 	]
 
 
 admin.site.register(Attendee, AttendeeAdmin)
