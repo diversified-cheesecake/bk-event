@@ -87,6 +87,7 @@ class AttendeeCreate(CreateView):
 		'home_phone',
 		'cell_phone',
 		'showed_up',
+		'input_by',
 	]
 
 
@@ -106,6 +107,7 @@ class AttendeeUpdate(UpdateView):
 		'home_phone',
 		'cell_phone',
 		'showed_up',
+		'input_by',
 	]
 
 def csv_export(request):
