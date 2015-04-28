@@ -79,12 +79,14 @@ class AttendeeCreate(CreateView):
 		'last_name',
 		'email',
 		'address',
+		'city'
 		'state',
-		'city',
+		'zipcode',
 		'home_phone',
 		'cell_phone',
 		'showed_up',
 	]
+
 
 
 class AttendeeUpdate(UpdateView):
@@ -96,8 +98,9 @@ class AttendeeUpdate(UpdateView):
 		'last_name',
 		'email',
 		'address',
+		'city'
 		'state',
-		'city',
+		'zipcode',
 		'home_phone',
 		'cell_phone',
 		'showed_up',
