@@ -114,7 +114,7 @@ def csv_export(request):
 			if request.POST['export_password'] == 'evergreen':
 				qs = User.objects.all()
 				return render_to_csv_response(qs)
-	render(request, 'export.html')
+	return render(request, 'export.html')
 
 
 
