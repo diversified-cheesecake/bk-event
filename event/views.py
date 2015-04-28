@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse, reverse_lazy
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView
 from djqscsv import render_to_csv_response
+import import_export
 
 
 from .models import Attendee, Attendance, User
