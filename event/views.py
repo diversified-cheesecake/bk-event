@@ -116,7 +116,7 @@ def csv_export(request):
 				return render_to_csv_response(qs)
 		except:
 			pass
-	return render(request, 'export.html')
+	return render(request, 'event/export.html')
 
 
 
