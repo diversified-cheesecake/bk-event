@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse, reverse_lazy
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView
 
-from .models import Attendee, Attendance
+from .models import Attendee, Attendance, User
 
 
 def start(request):
@@ -12,6 +12,8 @@ def start(request):
 		try:
 			request.session['user_full_name'] = request.POST['user_full_name']
 			request.session['user_email'] = request.POST['user_email']
+			user = User(full_name=request.POST['user_full_name'], email=request.POST['user_email'])
+			user.save()
 		except KeyError, e:
 			return render(request, 'event/start.html', {'error_msg':'KeyError'})
 		else:
