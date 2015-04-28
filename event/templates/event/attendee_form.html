@@ -25,6 +25,11 @@
   </div>
  {% endifequal %}
  {% endfor %}
+
+<input type="hidden" name="input_by" value="{{ request.session.user_email }}">
+
 <button type="submit" class="btn btn-default">Create New Attendee</button>
+
+</form>
 
 {% endblock %}
