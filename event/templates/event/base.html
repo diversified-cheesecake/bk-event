@@ -37,7 +37,7 @@ body #main-content {
 
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -45,12 +45,13 @@ body #main-content {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Event Tracker</a>
+          <a class="navbar-brand" href="/">Event Tracker</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             {% if request.session.user_email %}
               <li><p class="navbar-text">Signed in as <strong>{{ request.session.user_full_name }}</strong></p></li>
+              <li><a href="/entry/">Event List</a></li>
               {% else %}
               <li><a href="/">Not Signed in</a></li>
             {% endif %}
