@@ -48,13 +48,13 @@ def save_data(request):
 			for entry in entries:
 				print entry
 				attendee = get_object_or_404(Attendee, pk=int(entry))
+				print attendee.first_name, attendee.showed_up
 				if attendee.showed_up != True:
 					attendee.showed_up = True
 					attendee.input_by = request.session.get('user_email')
 					attendee.save()
 				# attend_record = Attendance(attendee=attendee, showed_up=True, input_by=request.session.get('user_email'))
 				# attend_record.save()
-				print entry
 			return HttpResponseRedirect(reverse('event:data_entry'))
 
 def save_and_add(request):
