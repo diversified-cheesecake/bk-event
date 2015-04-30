@@ -39,21 +39,18 @@ def save_data(request):
 	if request.method == 'POST':
 		try:
 			entries = request.POST.getlist('showed_up_list')
-			print entries
 		except KeyError:
 			# return render(request, 'event/entry_page.html', {'error_msg':'KeyError'})
 			return HttpResponseRedirect(reverse('event:data_entry'))
 		else:
 			if not isinstance(entries, list):
 				entries = [entries]
-			print entries
 			for entry in entries:
-				print entry
 				attendee = get_object_or_404(Attendee, pk=int(entry))
 				print attendee.first_name, attendee.showed_up
 				if attendee.showed_up != True:
 					attendee.showed_up = True
-					attendee.input_by = request.session.get('user_email')
+					attendee.input_by = request.session.get('user_email') or ''
 					attendee.save()
 				# attend_record = Attendance(attendee=attendee, showed_up=True, input_by=request.session.get('user_email'))
 				# attend_record.save()
