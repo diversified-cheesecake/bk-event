@@ -4,6 +4,7 @@ dj-database-url==0.3.0
 dj-static==0.0.6
 Django==1.8
 django-csvimport==2.4
+-e git+https://github.com/bmihelac/django-import-export.git@562cfb6ab66a2cae1349e734c49ad39864ffd07a#egg=django_import_export-master
 django-queryset-csv==0.3.0
 django-toolbelt==0.0.1
 gunicorn==19.3.0
