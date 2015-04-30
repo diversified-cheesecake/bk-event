@@ -46,6 +46,7 @@ def save_data(request):
 			if not isinstance(entries, list):
 				entries = [entries]
 			for entry in entries:
+				print entry
 				attendee = get_object_or_404(Attendee, pk=int(entry))
 				if attendee.showed_up != True:
 					attendee.showed_up = True
