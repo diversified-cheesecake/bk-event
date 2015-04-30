@@ -13,7 +13,7 @@ class AttendeeResource(resources.ModelResource):
     	import_id_fields = ['id']
         model = Attendee
         fields = [
-        	# 'id',
+        	'id',
 			'my_campaign_id',
 			'first_name',
 			'last_name',
