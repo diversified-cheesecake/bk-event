@@ -31,7 +31,7 @@ def logout(request):
 class DataEntryView(generic.ListView):
 	template_name = 'event/entry_page.html'
 	context_object_name = 'entry_list'
-	queryset = Attendee.objects.all()
+	queryset = Attendee.objects.order_by('last_name', 'first_name')
 
 
 

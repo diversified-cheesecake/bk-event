@@ -9,6 +9,8 @@
 				<th>Showed Up?</th>
 				<th>First Name</th>
 				<th>Last Name</th>
+				<th>City</th>
+				<th>State</th>
 				<th>Email</th>
 				<th>Edit</th>
 			</tr>
@@ -25,6 +27,8 @@
 				</td>
 				<td>{{ attendee.first_name }}</td>
 				<td>{{ attendee.last_name }}</td>
+				<td>{{ attendee.city }}</td>
+				<td>{{ attendee.state }}</td>
 				<td>{{ attendee.email }}</td>
 				<td>
 					<a href="/attendee/update/{{ attendee.id }}" class="btn btn-default btn-sm" role="button">Edit Record</a>
