@@ -39,12 +39,14 @@ def save_data(request):
 	if request.method == 'POST':
 		try:
 			entries = request.POST['showed_up_list']
+			print 'before cleaning' + entries
 		except KeyError:
 			# return render(request, 'event/entry_page.html', {'error_msg':'KeyError'})
 			return HttpResponseRedirect(reverse('event:data_entry'))
 		else:
 			if not isinstance(entries, list):
 				entries = [entries]
+			print ' after cleaning ' + entries
 			for entry in entries:
 				print entry
 				attendee = get_object_or_404(Attendee, pk=int(entry))
