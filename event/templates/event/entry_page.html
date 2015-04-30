@@ -1,5 +1,7 @@
 {% extends "event/base.html" %}
 
+{% block title %}Check-in List{% endblock %}
+
 {% block content %}
 <form method="POST" id="theform">
 	{% csrf_token %}

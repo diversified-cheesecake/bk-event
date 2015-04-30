@@ -1,5 +1,7 @@
 {% extends "event/base.html" %}
 
+{% block title %}Export to CSV{% endblock %}
+
 {% block content %}
 <form method="POST">
 	{% csrf_token %}
