@@ -38,7 +38,7 @@ class DataEntryView(generic.ListView):
 def save_data(request):
 	if request.method == 'POST':
 		try:
-			entries = request.POST['showed_up_list']
+			entries = request.POST.getlist('showed_up_list')
 			print entries
 		except KeyError:
 			# return render(request, 'event/entry_page.html', {'error_msg':'KeyError'})
