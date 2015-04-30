@@ -10,7 +10,7 @@ class User(models.Model):
 
 
 class Attendee(models.Model):
-	my_campaign_id = models.IntegerField(null=True, blank=True)
+	my_campaign_id = models.BigIntegerField(null=True, blank=True)
 	first_name = models.CharField(max_length=200, blank=True)
 	last_name = models.CharField(max_length=200, blank=True)
 	address = models.CharField(max_length=245, blank=True)
