@@ -1,0 +1,53 @@
+{% extends "event/base.html" %}
+
+{% block title %}Check-in List{% endblock %}
+
+{% block content %}
+<form method="POST" id="theform">
+	{% csrf_token %}
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Showed Up?</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>City</th>
+				<th>State</th>
+				<th>Email</th>
+				<th>Edit</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for attendee in entry_list %}
+			<tr>
+				<td>
+					{% if attendee.showed_up %}
+					<input type="checkbox" name="showed_up_list" value="{{ attendee.id }}" checked>
+					{% else %}
+					<input type="checkbox" name="showed_up_list" value="{{ attendee.id }}">
+					{% endif %}
+				</td>
+				<td>{{ attendee.first_name }}</td>
+				<td>{{ attendee.last_name }}</td>
+				<td>{{ attendee.city }}</td>
+				<td>{{ attendee.state }}</td>
+				<td>{{ attendee.email }}</td>
+				<td>
+					<a href="/attendee/update/{{ attendee.id }}" class="btn btn-default btn-sm" role="button">Edit Record</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</form>
+
+
+      <div class="container">
+      		<div class="btn-group" role="group" aria-label="...">
+			  <button type="input" class="btn btn-default" form="theform" formaction="{% url 'event:save_data' %}" formmethod="POST">Save</button>
+			  <button type="input" class="btn btn-default" form="theform" formaction="{% url 'event:save_and_add' %}" formmethod="POST">Add New Attendee Not On List</button>
+			</div>
+      </div>
+
+
+{% endblock %}
