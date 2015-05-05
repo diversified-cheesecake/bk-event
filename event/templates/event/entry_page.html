@@ -24,7 +24,7 @@ myApp.controller("MyCtrl", function($scope) {
 </script>
 
 <style>
-	.input-across { width: 70% }
+	.input-across { width: 80% }
 </style>
 
 {% endblock %}
@@ -33,10 +33,21 @@ myApp.controller("MyCtrl", function($scope) {
 <div ng-app="myApp">
 <div ng-controller="MyCtrl">
 
-<div class="input-group input-across">
-	<label>Search: 
-		<input ng-model="searchText" class="form-control" placeholder="Name, Email, Phone, etc.">
-	</lable>
+<div class="row">
+	<div class="col-lg-6">
+		<div class="input-group input-across">
+			<input ng-model="searchText" class="form-control" placeholder="Search Name, Email, Phone, etc.">
+		</div>
+	</div>
+
+	<div class="col-lg-6">
+		<div class="btn-group" role="group" aria-label="...">
+			<button type="submit" class="btn btn-default" form="theform" formaction="{% url 'event:save_data' %}" formmethod="POST">Save</button>
+			<button type="submit" class="btn btn-default" form="theform" formaction="{% url 'event:save_and_add' %}" formmethod="POST">Add New Attendee Not On List</button>
+		</div>
+	</div>
+	<br><br>
+
 </div>
 
 <form method="POST" id="theform" action="save-data">
@@ -78,9 +89,9 @@ myApp.controller("MyCtrl", function($scope) {
 
 
   <div class="container">
-  		<div class="btn-group" role="group" aria-label="...">
-		  <button type="submit" class="btn btn-default" form="theform" formaction="{% url 'event:save_data' %}" formmethod="POST">Save</button>
-		  <button type="submit" class="btn btn-default" form="theform" formaction="{% url 'event:save_and_add' %}" formmethod="POST">Add New Attendee Not On List</button>
+		<div class="btn-group" role="group" aria-label="...">
+			<button type="submit" class="btn btn-default" form="theform" formaction="{% url 'event:save_data' %}" formmethod="POST">Save</button>
+			<button type="submit" class="btn btn-default" form="theform" formaction="{% url 'event:save_and_add' %}" formmethod="POST">Add New Attendee Not On List</button>
 		</div>
   </div>
 
