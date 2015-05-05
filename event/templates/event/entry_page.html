@@ -52,7 +52,7 @@ myApp.controller("MyCtrl", function($scope) {
  -->
 
 
-<label>Search: <input ng-model="searchText"></label>
+<label><input ng-model="searchText" placeholder="Search Name, Email, Phone, etc."></label>
 <form method="POST" id="theform">
 	{% csrf_token %}
 	<table class="table table-striped" id="searchTextResults">
@@ -88,6 +88,9 @@ myApp.controller("MyCtrl", function($scope) {
 	</table>
 </form>
 
+</div>
+</div>
+
 
       <div class="container">
       		<div class="btn-group" role="group" aria-label="...">
@@ -96,8 +99,6 @@ myApp.controller("MyCtrl", function($scope) {
 			</div>
       </div>
 
-</div>
-</div>
 
 
 {% endblock %}
