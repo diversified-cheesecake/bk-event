@@ -23,38 +23,20 @@ myApp.controller("MyCtrl", function($scope) {
 
 </script>
 
+<style>
+	.input-across { width: 50% }
+</style>
+
 {% endblock %}
 
 {% block content %}
 <div ng-app="myApp">
 <div ng-controller="MyCtrl">
 
-
-<!-- 
-<label>Search: <input ng-model="searchText"></label>
-<table id="searchTextResults">
-  <tr><th>first_name</th><th>last_name</th></tr>
-  <tr ng-repeat="entry in entry_list | filter:searchText">
-    <td>[[entry.first_name]]</td>
-    <td>[[entry.last_name]]</td>
-    <td ng-if="[[entry.showed_up]] == 'True'">
-    	<input type="checkbox" name="showed_up_list" value="[[entry.id]]" checked>
-    </td>
-    <td ng-if="[[entry.showed_up]] == 'False'">
-    	<input type="checkbox" name="showed_up_list" value="[[entry.id]]">
-    </td>
-    <td>
-		<a href="/attendee/update/[[entry.id]]" class="btn btn-default btn-sm" role="button">Edit Record</a>
-	</td>
-  </tr>
-</table>
-</div>
- -->
-
-
-<div class="input-group">
+<div class="input-group input-across">
 	<input ng-model="searchText" class="form-control" placeholder="Search Name, Email, Phone, etc.">
 </div>
+
 <form method="POST" id="theform" action="save-data">
 	{% csrf_token %}
 	<table class="table table-striped" id="searchTextResults">
