@@ -52,7 +52,9 @@ myApp.controller("MyCtrl", function($scope) {
  -->
 
 
-<label><input ng-model="searchText" class="form-control" placeholder="Search Name, Email, Phone, etc."></label>
+<div class="input-group">
+	<input ng-model="searchText" class="form-control" placeholder="Search Name, Email, Phone, etc.">
+</div>
 <form method="POST" id="theform" action="save-data">
 	{% csrf_token %}
 	<table class="table table-striped" id="searchTextResults">
