@@ -91,8 +91,8 @@ myApp.controller("MyCtrl", function($scope) {
 
       <div class="container">
       		<div class="btn-group" role="group" aria-label="...">
-			  <button type="input" class="btn btn-default" form="theform" formaction="{% url 'event:save_data' %}" formmethod="POST">Save</button>
-			  <button type="input" class="btn btn-default" form="theform" formaction="{% url 'event:save_and_add' %}" formmethod="POST">Add New Attendee Not On List</button>
+			  <button type="submit" class="btn btn-default" form="theform" formaction="{% url 'event:save_data' %}" formmethod="POST">Save</button>
+			  <button type="submit" class="btn btn-default" form="theform" formaction="{% url 'event:save_and_add' %}" formmethod="POST">Add New Attendee Not On List</button>
 			</div>
       </div>
 
