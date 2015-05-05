@@ -34,7 +34,9 @@ myApp.controller("MyCtrl", function($scope) {
 <div ng-controller="MyCtrl">
 
 <div class="input-group input-across">
-	<input ng-model="searchText" class="form-control" placeholder="Search Name, Email, Phone, etc.">
+	<label>Search: 
+		<input ng-model="searchText" class="form-control" placeholder="Name, Email, Phone, etc.">
+	</lable>
 </div>
 
 <form method="POST" id="theform" action="save-data">
