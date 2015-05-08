@@ -33,6 +33,11 @@ class DataEntryView(generic.ListView):
 	context_object_name = 'entry_list'
 	queryset = Attendee.objects.order_by('last_name', 'first_name')
 
+	def get_context_data(self, **kwargs):
+		context = super(DataEntryView, self).get_context_data(**kwargs)
+		context['event_count'] = {'showed_up':Attendee.objects.filter(showed_up=True).count(), 'total':Attendee.objects.count()}
+		return context	
+
 
 
 def save_data(request):
