@@ -1,6 +1,18 @@
 {% extends "event/base.html" %}
 
+{% block head %}
+
+<style>
+.required:after {
+    content: "*";
+    color: red;
+    padding-left:1%;
+}
+</style>
+
 {% block title %}New Attendee{% endblock %}
+
+{% endblock %}
 
 {% block content %}
 
@@ -22,6 +34,34 @@
       <input type="hidden" class="form-control" id="id_{{ field.name }}" name="{{ field.name }}"  placeholder="{{ field.label }}" value="{{ request.session.user_email }}">
     </div>
     </div>
+{% elif field.name == "first_name" %}
+  <div class="form-group">
+    <label for="id_{{ field.name }}" class="required col-sm-2 control-label">{{ field.label }}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="id_{{ field.name }}" name="{{ field.name }}"  placeholder="{{ field.label }}" required>
+    </div>
+  </div>
+{% elif field.name == "last_name" %}
+  <div class="form-group">
+    <label for="id_{{ field.name }}" class="required col-sm-2 control-label">{{ field.label }}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="id_{{ field.name }}" name="{{ field.name }}"  placeholder="{{ field.label }}" required>
+    </div>
+  </div>
+{% elif field.name == "zipcode" %}
+  <div class="form-group">
+    <label for="id_{{ field.name }}" class="required col-sm-2 control-label">{{ field.label }}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="id_{{ field.name }}" name="{{ field.name }}"  placeholder="{{ field.label }}" required>
+    </div>
+  </div>
+{% elif field.name == "cell_phone" %}
+  <div class="form-group">
+    <label for="id_{{ field.name }}" class="required col-sm-2 control-label">{{ field.label }}</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="id_{{ field.name }}" name="{{ field.name }}"  placeholder="{{ field.label }}" required>
+    </div>
+  </div>
 {% else %}
 	<div class="form-group">
     <label for="id_{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
